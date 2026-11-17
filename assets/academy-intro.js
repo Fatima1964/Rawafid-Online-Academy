@@ -12,7 +12,7 @@
  timer=setTimeout(()=>{if(ticket===run)finish();},10000);
  if(manual)skip.focus({preventScroll:true});if(motion.matches)return;
  const offset=innerWidth/2+convoy.offsetWidth/2+40;
- animation=convoy.animate([{transform:`translate(calc(-50% + ${offset}px),-50%)`},{transform:`translate(calc(-50% - ${offset}px),-50%)`}],{duration:10000,iterations:1,easing:'linear',fill:'both'});
+ animation=convoy.animate([{transform:`translate(calc(-50% + ${offset}px),-50%)`,offset:0},{transform:'translate(-48%,-50%)',offset:.2},{transform:'translate(-52%,-50%)',offset:.8},{transform:`translate(calc(-50% - ${offset}px),-50%)`,offset:1}],{duration:10000,iterations:1,easing:'linear',fill:'both'});
  sloganTimer=setTimeout(()=>{if(ticket===run){caption.textContent='Experienced teaching. Personalised learning.';intro.querySelector('.academy-banner').classList.add('slogan');intro.querySelector('.academy-banner strong').innerHTML='Experienced Teachers.<br><span>Confident Learners.</span>';}},5000);
  }
  skip.onclick=()=>{finish();replay.focus({preventScroll:true});};replay.onclick=()=>start(true);
