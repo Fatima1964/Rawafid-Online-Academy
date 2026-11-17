@@ -75,3 +75,14 @@ html body .button,html body .programme,html body .pathway-cards article{transiti
  html body .programme:hover,html body .programme:focus-within,html body .pathway-cards article:hover,html body button:not(.island):hover,html body a.button:hover{transform:none!important;translate:none!important}
  html body .reveal{opacity:1!important;transform:none!important}
 }
+
+/* Mobile QA: readable cards and controls outside the content viewport. */
+@media(max-width:600px){
+ html body #replayIntro,html body #motionButton{position:relative!important;inset:auto!important;display:inline-flex!important;vertical-align:middle;margin:12px 16px 24px!important;min-height:44px;z-index:1!important}
+ html body .programme p{font-size:14px!important;line-height:1.65!important}
+ html body .programme .button{font-size:13px!important;min-height:44px}
+}
+@media(max-width:400px){
+ html body .programme-grid{grid-template-columns:minmax(0,1fr)!important}
+ html body .programme h3{font-size:21px!important}
+}
