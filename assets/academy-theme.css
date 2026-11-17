@@ -54,3 +54,24 @@ body:not(.academy-page) footer a,body:not(.academy-page) footer p,body:not(.acad
 /* Text-led age group cards: no photographs or decorative imagery. */
 .pathway-heading{display:flex;align-items:center;gap:16px;padding:26px 24px;background:#ddf3fc;border-bottom:1px solid #cde5eb;min-height:106px}.pathway-heading h3{font:900 clamp(24px,2.5vw,32px)/1.15 Arial,sans-serif;margin:0;color:#07515a;letter-spacing:-.5px}.pathway-number{display:grid;place-items:center;flex:0 0 46px;height:46px;border-radius:15px;background:#fffaf5;color:#07515a;font:800 17px/1 Arial,sans-serif;box-shadow:0 4px 0 #acd2dc;border:1px solid #fff}.pathway-cards article:nth-child(2) .pathway-heading{background:#ffe8df;border-color:#f2d3c5}.pathway-cards article:nth-child(2) .pathway-number{box-shadow:0 4px 0 #e5b7a4}.pathway-cards article:nth-child(3) .pathway-heading{background:#dcefeb;border-color:#c1dfd7}.pathway-cards article:nth-child(3) .pathway-number{box-shadow:0 4px 0 #a9cfc3}.pathway-cards .pathway-copy{padding:24px}.pathway-copy>strong{display:block;font-size:17px;line-height:1.45}.pathway-cards article{background:#fffaf5}.pathway-copy ul{border-top:1px solid #e0e9e5;padding-top:16px}[dir=rtl] .pathway-heading h3{letter-spacing:0}@media(max-width:800px){.pathway-heading{min-height:90px;padding:20px 22px}.pathway-cards{gap:22px}}
 .registration-options{width:min(600px,94vw);max-height:90dvh;border:1px solid #b8dce6;border-radius:24px;background:#fffaf5;color:#07515a;padding:28px;overflow:auto;box-sizing:border-box}.registration-options::backdrop{background:#073c4bcc}.registration-options h2{font:800 27px Arial;margin:0 35px 12px 0}.registration-options p{font-size:14px;line-height:1.6}.options-close{float:right;border:0;background:#ddf3fc;border-radius:50%;width:36px;height:36px;font-size:24px}.registration-options fieldset{border:1px solid #c8e3e6;border-radius:12px;margin:18px 0;padding:14px}.registration-options legend,.options-label{font-weight:700}.option-grid{display:flex;flex-wrap:wrap;gap:10px}.option-grid label{padding:9px;background:#e9f6fa;border-radius:9px;cursor:pointer}.option-grid input{accent-color:#07515a}.registration-options select{display:block;width:100%;padding:12px;background:white;border:1px solid #afcfd8;border-radius:10px;margin:8px 0 18px}.registration-options .button{margin-top:10px;background:#ff927c;border:0;border-radius:25px;padding:13px 22px;font-weight:800}.contact-icon{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:48px!important;height:48px!important;min-width:48px;padding:10px!important;background:#e1f3f7!important;color:#07515a!important;border:1px solid #b6dae3!important;border-radius:15px;box-shadow:0 3px 0 #b4d4dd;vertical-align:middle}.contact-icon:hover{background:#ffdfd4!important}.contact-icon:focus-visible{outline:3px solid #07515a;outline-offset:4px}
+
+/* Calm motion: steady readable banner, restrained lift, no touch hover bounce. */
+html body .fly-intro .academy-banner{animation:none!important;transform:none!important;rotate:none!important}
+html body .fly-intro .intro-prop i{animation-duration:.65s!important}
+html body .button,html body .programme,html body .pathway-cards article{transition:transform .24s cubic-bezier(.22,1,.36,1),translate .24s cubic-bezier(.22,1,.36,1),box-shadow .24s ease,background-color .2s ease!important}
+@media(hover:hover) and (pointer:fine) and (prefers-reduced-motion:no-preference){
+ html body .programme:hover,html body .programme:focus-within,html body .pathway-cards article:hover{transform:translateY(-4px)!important;translate:none!important}
+ html body button:not(.island):hover,html body a.button:hover{translate:0 -2px!important}
+ html body button:not(.island):active,html body a.button:active{translate:0 1px!important}
+}
+@media(max-width:600px),(pointer:coarse){
+ html body .plane-float,html body .cloudlet,html body .propeller-spin,html body .intro-prop i{animation:none!important}
+ html body .plane-position{transform:none!important;translate:none!important}
+ html body .programme:hover,html body .programme:focus-within,html body .pathway-cards article:hover,html body button:not(.island):hover,html body a.button:hover{transform:none!important;translate:none!important}
+ html.page-enter body main>*{animation:none!important}
+}
+@media(prefers-reduced-motion:reduce){
+ html body *,html body *:before,html body *:after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+ html body .programme:hover,html body .programme:focus-within,html body .pathway-cards article:hover,html body button:not(.island):hover,html body a.button:hover{transform:none!important;translate:none!important}
+ html body .reveal{opacity:1!important;transform:none!important}
+}

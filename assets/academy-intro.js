@@ -11,8 +11,14 @@
  // Reduced-motion Replay shows a still welcome for ten seconds, with Skip available.
  timer=setTimeout(()=>{if(ticket===run)finish();},10000);
  if(manual)skip.focus({preventScroll:true});if(motion.matches)return;
- const offset=innerWidth/2+convoy.offsetWidth/2+40;
- animation=convoy.animate([{transform:`translate(calc(-50% + ${offset}px),-50%)`,offset:0},{transform:'translate(-48%,-50%)',offset:.2},{transform:'translate(-52%,-50%)',offset:.8},{transform:`translate(calc(-50% - ${offset}px),-50%)`,offset:1}],{duration:10000,iterations:1,easing:'linear',fill:'both'});
+ const compact=matchMedia('(max-width:600px), (pointer:coarse)').matches;
+ const offset=compact?28:innerWidth/2+convoy.offsetWidth/2+40;
+ animation=convoy.animate([
+  {transform:`translate(calc(-50% + ${offset}px),-50%)`,opacity:compact?0:1,offset:0,easing:'cubic-bezier(.22,1,.36,1)'},
+  {transform:'translate(-50%,-50%)',opacity:1,offset:.18},
+  {transform:'translate(-50%,-50%)',opacity:1,offset:.84,easing:'cubic-bezier(.64,0,.78,0)'},
+  {transform:`translate(calc(-50% - ${offset}px),-50%)`,opacity:compact?0:1,offset:1}
+ ],{duration:10000,iterations:1,easing:'linear',fill:'both'});
  sloganTimer=setTimeout(()=>{if(ticket===run){caption.textContent='Experienced teaching. Personalised learning.';intro.querySelector('.academy-banner').classList.add('slogan');intro.querySelector('.academy-banner strong').innerHTML='Experienced Teachers.<br><span>Confident Learners.</span>';}},5000);
  }
  skip.onclick=()=>{finish();replay.focus({preventScroll:true});};replay.onclick=()=>start(true);
