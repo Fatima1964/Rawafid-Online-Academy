@@ -6,18 +6,20 @@
  fr:{slogan:'Un enseignement expérimenté. Un apprentissage personnalisé.',title:'Un enseignement expérimenté.<br><span>Un apprentissage personnalisé.</span>',intro:'Cours en ligne et en direct de Coran, études islamiques, arabe et anglais. Les évaluations diagnostiques orientent des leçons adaptées aux besoins, au niveau et aux objectifs de chaque élève.',label:'L’approche Rawafid',heading:'Vos besoins orientent chaque leçon.',steps:[['Comprendre','Une évaluation diagnostique identifie les points forts et les besoins.'],['Personnaliser','Un programme individuel adapte le contenu et le rythme à chaque élève.'],['Accompagner','Les cours en direct et les retours guident l’apprentissage aussi longtemps que nécessaire.']]},
  es:{slogan:'Enseñanza con experiencia. Aprendizaje personalizado.',title:'Enseñanza con experiencia.<br><span>Aprendizaje personalizado.</span>',intro:'Cursos en directo de Corán, estudios islámicos, árabe e inglés. Las evaluaciones diagnósticas orientan lecciones adaptadas a las necesidades, el nivel y los objetivos de cada estudiante.',label:'El enfoque Rawafid',heading:'Tus necesidades orientan cada lección.',steps:[['Comprender','Una evaluación diagnóstica identifica fortalezas y necesidades de aprendizaje.'],['Personalizar','Un plan individual adapta el contenido y el ritmo a cada estudiante.'],['Acompañar','Las clases en directo y los comentarios guían el aprendizaje durante el tiempo necesario.']]}
  };
+ const support={"en": "Teaching and learner support are available in English and Arabic.", "ar": "التدريس ودعم المتعلمين متاحان باللغتين الإنجليزية والعربية.", "fr": "L’enseignement et l’accompagnement des apprenants sont disponibles en anglais et en arabe.", "es": "La enseñanza y el apoyo al estudiante están disponibles en inglés y árabe."};
  function sync(){
  const lang=document.documentElement.lang||'en',t=copy[lang]||copy.en,hero=document.getElementById('approvedHero');
  if(hero){
  document.getElementById('aTitle').innerHTML=t.title;
  document.getElementById('aIntro').textContent=t.intro;
+ document.getElementById('aNote').textContent=support[lang]||support.en;
  let section=document.getElementById('academyIdentity');
  if(!section){section=document.createElement('section');section.id='academyIdentity';section.className='academy-identity';hero.after(section);}
  section.setAttribute('aria-labelledby','identityHeading');
  section.innerHTML=`<div class="identity-intro"><p>${t.label}</p><h2 id="identityHeading">${t.heading}</h2></div><div class="identity-steps">${t.steps.map((step,i)=>`<article><span aria-hidden="true">0${i+1}</span><h3>${step[0]}</h3><p>${step[1]}</p></article>`).join('')}</div>`;
  document.querySelector('footer [data-t="footer"]').textContent=t.slogan;
  document.title='Rawafid Online Academy | '+t.slogan;
- }else{const footer=document.querySelector('.footer-brand p');if(footer)footer.textContent=t.slogan;}
+ }else{const courseHero=document.querySelector('.hero');if(courseHero){let note=document.getElementById('teachingSupport');if(!note){note=document.createElement('p');note.id='teachingSupport';note.className='teaching-support';courseHero.after(note);}note.textContent=support[lang]||support.en;}const footer=document.querySelector('.footer-brand p');if(footer)footer.textContent=t.slogan;}
  }
  new MutationObserver(sync).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});sync();
 })();
