@@ -47,3 +47,6 @@ body:not(.academy-page) footer a,body:not(.academy-page) footer p,body:not(.acad
 @media(prefers-reduced-motion:reduce){.fly-intro,.fly-intro *,.page-enter main>*{animation:none!important;transition:none!important}.intro-convoy{transform:translate(-50%,-50%)!important}html{scroll-behavior:auto!important}}
 
 .pathway-cards img{height:160px;max-height:160px;aspect-ratio:auto;object-fit:cover}.pathway-cards article:nth-child(1) img{object-position:65% 43%}.pathway-cards article:nth-child(2) img{object-position:50% 35%}.pathway-cards article:nth-child(3) img{object-position:65% 25%}.pathway-copy{padding:20px}.pathway-copy h3{font-size:25px}@media(max-width:800px){.pathway-cards img{height:150px;max-height:150px}}
+
+/* Keep complete photographs visible in compact, consistently sized panels. */
+.pathway-cards article img{object-fit:contain;object-position:center!important;background:#e9f6fa;height:160px;max-height:160px;padding:8px;width:100%;box-sizing:border-box}@media(max-width:800px){.pathway-cards article img{height:150px;max-height:150px;object-fit:contain}}
