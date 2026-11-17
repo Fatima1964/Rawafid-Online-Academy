@@ -3,7 +3,7 @@ function renderAcademyChrome(l,prefix){
  const t=academyChromeCopy[l],home=prefix+'index.html?lang='+l,form='https://docs.google.com/forms/d/e/1FAIpQLScoxUtVEkl3o8Z7QdqWILB4t1KYG3ojnrYhp6BJ97invWNKrA/viewform';
  const header=document.querySelector('header');let nav=header.querySelector('.academy-nav');
  if(!nav){nav=document.createElement('nav');nav.className='academy-nav';header.insertBefore(nav,document.getElementById('language'));}
- nav.setAttribute('aria-label',t.nav[0]);nav.innerHTML=['programmes','teachers','finder','how','faq','contact'].map((id,i)=>`<a href="${home}#${id}">${t.nav[i]}</a>`).join('');
+ nav.setAttribute('aria-label',t.nav[0]);nav.innerHTML=['programmes','teachers','agePathways','how','faq','contact'].map((id,i)=>`<a href="${home}#${id}">${t.nav[i]}</a>`).join('');
  const brand=header.querySelector('.brand');brand.href=home;brand.innerHTML='<span class="brand-name">Rawafid<small>Online Academy</small></span>';brand.setAttribute('aria-label','Rawafid Online Academy');
  const language=document.getElementById('language');language.setAttribute('aria-label',t.language);
  let register=header.querySelector('.header-register');if(!register){register=document.createElement('a');register.className='button header-register';header.appendChild(register);}register.href=form;register.target='_blank';register.rel='noopener noreferrer';register.textContent=t.register;
